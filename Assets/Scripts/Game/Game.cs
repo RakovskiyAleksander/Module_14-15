@@ -18,8 +18,7 @@ public class Game : MonoBehaviour
 
     private GameObject AddGameObjectToScene(GameObject gameObject, Vector3 startPosition)
     {
-        GameObject newGameObject = new GameObject();
-        newGameObject = Instantiate(gameObject, startPosition, Quaternion.identity);
+        GameObject newGameObject  = Instantiate(gameObject, startPosition, Quaternion.identity);
         return newGameObject;
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1696402541092321705}
   - component: {fileID: 7053459379681284511}
   - component: {fileID: 1782664983689987793}
+  - component: {fileID: 846053618310618340}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab69c3d9a64053940899d61c6213f8b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hand: {fileID: 4138901558432498817}
 --- !u!54 &7053459379681284511
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -97,6 +99,27 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!135 &846053618310618340
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3354125555326750048}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.2
+  m_Center: {x: 0, y: 1.26, z: 0}
 --- !u!1001 &5725541341373894394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -170,6 +193,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9f65d468731bcf4fba794d064637f84, type: 3}
+--- !u!4 &4138901558432498817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8504309617613441659, guid: f9f65d468731bcf4fba794d064637f84,
+    type: 3}
+  m_PrefabInstance: {fileID: 5725541341373894394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5260077915459741969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f9f65d468731bcf4fba794d064637f84,

@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4816467804905563095}
   - component: {fileID: -3704016283115532534}
+  - component: {fileID: 7735245045467730196}
+  - component: {fileID: 5117180450313360756}
   m_Layer: 0
   m_Name: Item Velosity Boost
   m_TagString: Untagged
@@ -31,7 +33,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3987039690839641415}
-  - {fileID: 8786383257091823698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-3704016283115532534
@@ -46,101 +47,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0740e27db443ad428c3595967278d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curve:
+  _verticalSwingCurve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.00048099598
-      value: 0.00009225216
-      inSlope: 3.6006167
-      outSlope: 3.6006167
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.3517766
-    - serializedVersion: 3
-      time: 0.24258924
-      value: 0.49732265
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.75338566
-      value: -0.49413252
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.9999734
-      value: -0.000010863354
-      inSlope: 4.933114
-      outSlope: 4.933114
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.30593094
-      outWeight: 0.33333334
+    m_Curve: []
     m_PreInfinity: 2
-    m_PostInfinity: 1
+    m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &8599110726962487755
-GameObject:
+  _rotationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &7735245045467730196
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8786383257091823698}
-  - component: {fileID: 7471070805893464826}
-  m_Layer: 0
-  m_Name: Velosity Boost
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8786383257091823698
-Transform:
+  m_GameObject: {fileID: 7814799550648962359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f937af91789dfe240987936092d36ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &5117180450313360756
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599110726962487755}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4816467804905563095}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7471070805893464826
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8599110726962487755}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dc344ebd28e84f244a456772ad16f573, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_GameObject: {fileID: 7814799550648962359}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &3521381718258625196
 PrefabInstance:
   m_ObjectHideFlags: 0

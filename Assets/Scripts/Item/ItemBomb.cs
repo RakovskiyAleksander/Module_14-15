@@ -1,0 +1,4 @@
+public class ItemBomb : Item
+{
+    
+}

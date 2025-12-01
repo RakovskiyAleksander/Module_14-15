@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    [SerializeField] Transform _hand;
+
     private float _movementSpeed;
     private float _rotationSpeed;
-    
 
     public void Initialize(float movementSpeed, float rotationSpeed)
     {
@@ -15,5 +16,6 @@ public class Character : MonoBehaviour
         moverController.Initialize(_movementSpeed, _rotationSpeed);
 
         gameObject.AddComponent<CharacterAnimationController>().Initialize(moverController);
+        gameObject.AddComponent<ItemCollector>().Initialize(_hand);
     }
 }
