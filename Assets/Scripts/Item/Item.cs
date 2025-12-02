@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour
 {
+    [SerializeField] protected ParticleSystem _useItemParticleSystem;
     public void Collected(Transform hand)
     {
         gameObject.GetComponent<ItemSwing>().enabled = false;
@@ -9,4 +10,8 @@ public abstract class Item : MonoBehaviour
         gameObject.transform.localPosition = Vector3.zero;
         gameObject.transform.localRotation = Quaternion.identity;
     }
+
+    public abstract void Use(Character character);
+
+    protected abstract void DestroyItem();
 }

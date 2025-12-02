@@ -6,16 +6,42 @@ public class Character : MonoBehaviour
 
     private float _movementSpeed;
     private float _rotationSpeed;
+    private MoverController _moverController;
 
-    public void Initialize(float movementSpeed, float rotationSpeed)
+    private float _health;
+
+    public float Health => _health;
+    public float Speed => _movementSpeed;
+
+    public void Initialize(float movementSpeed, float rotationSpeed, float health)
     {
         _movementSpeed = movementSpeed;
         _rotationSpeed = rotationSpeed;
 
-        MoverController moverController = gameObject.AddComponent<MoverController>();
-        moverController.Initialize(_movementSpeed, _rotationSpeed);
+        _health = health;
 
-        gameObject.AddComponent<CharacterAnimationController>().Initialize(moverController);
+        _moverController = gameObject.AddComponent<MoverController>();
+        MoverControllerInitialize();
+
+        gameObject.AddComponent<CharacterAnimationController>().Initialize(_moverController);
         gameObject.AddComponent<ItemCollector>().Initialize(_hand);
     }
+
+    public void AddSpeeed(float addition)
+    {
+        _movementSpeed += addition;
+        MoverControllerInitialize();
+    }
+
+    public void AddHealth(float addition)
+    {
+        _health += addition;
+    }
+
+    private void MoverControllerInitialize()
+    {
+        _moverController.Initialize(_movementSpeed, _rotationSpeed);
+    }
+
+
 }
