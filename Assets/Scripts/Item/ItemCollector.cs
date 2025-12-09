@@ -20,7 +20,7 @@ public class ItemCollector : MonoBehaviour
 
         if (_handIsFull == false)
         {
-            if (other.TryGetComponent<Item>(out item))
+            if (other.TryGetComponent<Item>(out item) && item.CanUse(_character))
             {
                 _handIsFull = true;
                 _itemInHand = item;

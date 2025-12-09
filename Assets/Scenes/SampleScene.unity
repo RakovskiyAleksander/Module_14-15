@@ -1418,7 +1418,7 @@ MonoBehaviour:
   _playerStartPosition: {x: 0, y: 0, z: 0}
   _playerSpeed: 5
   _playerRotationSpeed: 5
-  _playerHealth: 20
+  _playerStartHealth: 10
 --- !u!4 &752609679
 Transform:
   m_ObjectHideFlags: 0

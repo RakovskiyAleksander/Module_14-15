@@ -51,4 +51,9 @@ public class ItemBomb : Item
 
         Destroy(gameObject);
     }
+
+    public override bool CanUse(Character character)
+    {
+        return true;
+    }
 }

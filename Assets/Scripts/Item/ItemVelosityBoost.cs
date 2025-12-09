@@ -4,6 +4,11 @@ public class ItemVelosityBoost : Item
 {
     [SerializeField] float _speedAddition;
 
+    public override bool CanUse(Character character)
+    {
+        return true;
+    }
+
     public override void Use(Character character)
     {
         character.AddSpeeed(_speedAddition); 

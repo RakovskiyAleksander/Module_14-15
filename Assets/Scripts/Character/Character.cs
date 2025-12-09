@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -8,9 +9,6 @@ public class Character : MonoBehaviour
     private float _rotationSpeed;
     private MoverController _moverController;
 
-    private float _health;
-
-    public float Health => _health;
     public float Speed => _movementSpeed;
 
     public void Initialize(float movementSpeed, float rotationSpeed, float health)
@@ -18,24 +16,22 @@ public class Character : MonoBehaviour
         _movementSpeed = movementSpeed;
         _rotationSpeed = rotationSpeed;
 
-        _health = health;
+
+
+
+        gameObject.AddComponent<ItemCollector>().Initialize(_hand);
+        gameObject.AddComponent<HealthController>().Initialize(health);
+        gameObject.AddComponent<SpeedController>().Initialize(movementSpeed);
 
         _moverController = gameObject.AddComponent<MoverController>();
         MoverControllerInitialize();
-
         gameObject.AddComponent<CharacterAnimationController>().Initialize(_moverController);
-        gameObject.AddComponent<ItemCollector>().Initialize(_hand);
     }
 
     public void AddSpeeed(float addition)
     {
         _movementSpeed += addition;
         MoverControllerInitialize();
-    }
-
-    public void AddHealth(float addition)
-    {
-        _health += addition;
     }
 
     private void MoverControllerInitialize()

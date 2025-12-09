@@ -11,6 +11,8 @@ public abstract class Item : MonoBehaviour
         gameObject.transform.localRotation = Quaternion.identity;
     }
 
+    public abstract bool CanUse(Character character);
+
     public abstract void Use(Character character);
 
     protected abstract void DestroyItem();

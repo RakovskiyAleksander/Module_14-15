@@ -7,16 +7,20 @@ public class Game : MonoBehaviour
     [SerializeField] private Vector3 _playerStartPosition;
     [SerializeField] private float _playerSpeed;
     [SerializeField] private float _playerRotationSpeed;
-    [SerializeField] private float _playerHealth;
+    [SerializeField] private float _playerStartHealth;
 
     private GameObject _player;
     private Character _characterByPlayer;
+
+    private HealthController _playerHealthController;
 
     private void Awake()
     {
         _player = AddGameObjectToScene(_playerPrefab, _playerStartPosition);
         _characterByPlayer = _player.GetComponent<Character>();
-        _characterByPlayer.Initialize(_playerSpeed, _playerRotationSpeed, _playerHealth);
+        _characterByPlayer.Initialize(_playerSpeed, _playerRotationSpeed, _playerStartHealth);
+        
+        _playerHealthController = _characterByPlayer.GetComponent<HealthController>();
     }
 
     private GameObject AddGameObjectToScene(GameObject gameObject, Vector3 startPosition)
@@ -27,7 +31,7 @@ public class Game : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Box(new Rect(40, 40, 250, 25), "Здоровье: " + _characterByPlayer.Health);
+        GUI.Box(new Rect(40, 40, 250, 25), "Здоровье: " + _playerHealthController.Health);
         GUI.Box(new Rect(40, 80, 250, 25), "Скорость: " + _characterByPlayer.Speed);
     }
 }
