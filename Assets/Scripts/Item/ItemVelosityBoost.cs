@@ -6,21 +6,32 @@ public class ItemVelosityBoost : Item
 
     public override bool CanUse(Character character)
     {
-        return true;
+        return TryGetSpeedController(character, out SpeedController speedController); ;
     }
 
     public override void Use(Character character)
     {
-        character.AddSpeeed(_speedAddition); 
+        if (TryGetSpeedController(character, out SpeedController speedController))
+        {
+            speedController.AddSpeed(_speedAddition);
 
-        _useItemParticleSystem.Play();
-        _useItemParticleSystem.transform.SetParent(null);
+            _useItemParticleSystem.Play();
+            _useItemParticleSystem.transform.SetParent(null);
 
-        DestroyItem();
+            DestroyItem();
+        }
     }
 
     protected override void DestroyItem()
     {
         Destroy(gameObject);
+    }
+
+    private bool TryGetSpeedController(Character character, out SpeedController speedController)
+    {
+        bool isGet = character.TryGetComponent<SpeedController>(out SpeedController characterSpeedController);
+        speedController = characterSpeedController;
+
+        return isGet;
     }
 }

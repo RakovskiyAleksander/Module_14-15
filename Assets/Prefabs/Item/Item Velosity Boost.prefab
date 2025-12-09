@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _useItemParticleSystem: {fileID: 1380371560935404037}
-  _speedAddition: 3
+  _speedAddition: 5
 --- !u!135 &5117180450313360756
 SphereCollider:
   m_ObjectHideFlags: 0

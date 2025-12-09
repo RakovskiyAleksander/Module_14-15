@@ -3,7 +3,7 @@ using UnityEngine;
 public class MoverController : MonoBehaviour
 {
     private Rigidbody _rigidbody;
-    private float _movementSpeed;
+    private SpeedController _speedController;
     private float _rotationSpeed;
 
     private float _vInput;
@@ -13,10 +13,10 @@ public class MoverController : MonoBehaviour
 
     public bool IsMove { get; private set; }
 
-    public void Initialize(float movementSpeed, float rotationSpeed)
+    public void Initialize(SpeedController speedController, float rotationSpeed)
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _movementSpeed = movementSpeed;
+        _speedController = speedController;
         _rotationSpeed = rotationSpeed;
 
         _mover = new Mover();
@@ -33,7 +33,7 @@ public class MoverController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovementSettings movementSetting = new MovementSettings(_rigidbody, _movementSpeed, _rotationSpeed, _vInput, _hInput);
-        _mover.MoveObject(movementSetting);
+        MovementSettings movementSetting = new MovementSettings(_rigidbody, _speedController.Speed, _rotationSpeed, _vInput, _hInput);
+        _mover.MoveCharacter(movementSetting);
     }
 }

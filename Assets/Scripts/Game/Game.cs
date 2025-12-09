@@ -13,6 +13,7 @@ public class Game : MonoBehaviour
     private Character _characterByPlayer;
 
     private HealthController _playerHealthController;
+    private SpeedController _playerSpeedController;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class Game : MonoBehaviour
         _characterByPlayer.Initialize(_playerSpeed, _playerRotationSpeed, _playerStartHealth);
         
         _playerHealthController = _characterByPlayer.GetComponent<HealthController>();
+        _playerSpeedController = _characterByPlayer.GetComponent<SpeedController>();
     }
 
     private GameObject AddGameObjectToScene(GameObject gameObject, Vector3 startPosition)
@@ -32,6 +34,6 @@ public class Game : MonoBehaviour
     void OnGUI()
     {
         GUI.Box(new Rect(40, 40, 250, 25), "Здоровье: " + _playerHealthController.Health);
-        GUI.Box(new Rect(40, 80, 250, 25), "Скорость: " + _characterByPlayer.Speed);
+        GUI.Box(new Rect(40, 80, 250, 25), "Скорость: " + _playerSpeedController.Speed);
     }
 }
