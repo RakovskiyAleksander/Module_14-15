@@ -14,14 +14,16 @@ public class ItemBomb : Item
     {
         if (TryGetBomber(character, out Bomber bomber))
         {
-            bomber.DropBomb(PrepareBomb());
+            bomber.DropBomb(PrepareBomb(), _explosionDelay, _pullForse);
         }
     }
 
-    protected override void DestroyItem()
+    public ParticleSystem GetUseItemParticleSystem()
     {
-        
-    }    
+        return _useItemParticleSystem;
+    }
+
+    protected override void DestroyItem() { }
 
     private bool TryGetBomber(Character character, out Bomber bomber)
     {

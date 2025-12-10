@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class Bomber : MonoBehaviour
 {
-    public void DropBomb(Bomb bomb)
+    public void DropBomb(Bomb bomb, float explosionDelay, float pullForse)
     {
+        bomb.Activate(explosionDelay);
+
         Mover mover = new Mover();
         Rigidbody rigidbody = bomb.GetComponent<Rigidbody>();
-        mover.DropItem(rigidbody, Vector3.up, 10);
+        Vector3 pullDirection = (Vector3.up + gameObject.transform.forward).normalized;
+        mover.DropItem(rigidbody, pullDirection , pullForse);
     }
 }

@@ -2,30 +2,36 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    //private bool _BombIsActive = false;
-    //private CountdownTimer _countdownTimer;
+    private bool _BombIsActive = false;
+    private CountdownTimer _countdownTimer;
 
-    //_countdownTimer = new CountdownTimer(_explosionDelay);
-    //_BombIsActive = true;
-    //private void Update()
-    //{
-    //    if (_BombIsActive)
-    //    {
-    //        _countdownTimer.Update();
+    public void Activate(float explosionDelay) 
+    {
+        _countdownTimer = new CountdownTimer(explosionDelay);
+        _BombIsActive = true;
+    }
 
-    //        if (_countdownTimer.TimeIsOver)
-    //        {
-    //            ExplodeBomb();
-    //        }
-    //    }
-    //}
+    private void Update()
+    {
+        if (_BombIsActive)
+        {
+            _countdownTimer.Update();
 
-    //private void ExplodeBomb()
-    //{
-    //    _useItemParticleSystem.transform.SetParent(null);
-    //    _useItemParticleSystem.transform.rotation = Quaternion.Euler(-90, 0, 0);
-    //    _useItemParticleSystem.Play();
+            if (_countdownTimer.TimeIsOver)
+            {
+                ExplodeBomb();
+            }
+        }
+    }
 
-    //    Destroy(gameObject);
-    //}
+    private void ExplodeBomb()
+    {
+        ParticleSystem useItemParticleSystem = GetComponent<ItemBomb>().GetUseItemParticleSystem();
+
+        useItemParticleSystem.transform.SetParent(null);
+        useItemParticleSystem.transform.rotation = Quaternion.Euler(-90, 0, 0);
+        useItemParticleSystem.Play();
+
+        Destroy(gameObject);
+    }
 }
